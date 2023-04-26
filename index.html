@@ -1,0 +1,153 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/stylesheet.css">
+</head>
+
+<body>
+
+
+  <div class="col-md-12">
+    <div class="row">
+      <div class="receipt-main col-xs-10 col-sm-10 col-md-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-3">
+        <div class="row">
+          <div class="receipt-header">
+            <div class="col-xs-6 col-sm-6 col-md-6">
+              <div class="receipt-left">
+                <img class="img-responsive" alt="iamgurdeeposahan"
+                  src="https://bootdey.com/img/Content/avatar/avatar6.png" style="width: 71px; border-radius: 43px;">
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="receipt-header receipt-header-mid">
+            <div class="col-xs-8 col-sm-8 col-md-8 text-left">
+              <div class="receipt-right">
+                <h5>Chan Sokngoun</h5>
+                <p><b>Mobile :</b> 011 98 60 90</p>
+                <p><b>Email :</b> sokngounchan@gmail.com</p>
+                <p><b>Address :</b> SETEC</p>
+              </div>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4">
+              <div class="receipt-left">
+                <h3>INVOICE Salary Worke</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Description</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="col-md-9">Total Time</td>
+                <td class="col-md-3" id="totalTime">0 Hour</td>
+              </tr>
+              <tr>
+                <td class="col-md-9">Extra Time 1</td>
+                <td class="col-md-3" id="extraRate1"><i class="fa fa-inr">0 Hour</i></td>
+              </tr>
+              <tr>
+                <td class="col-md-9">Extra Time 2</td>
+                <td class="col-md-3" id="extraRate2"><i class="fa fa-inr">0 Hour</i></td>
+              </tr>
+              <tr>
+                <td class="col-md-9">Bonus Rate 1</td>
+                <td class="col-md-3" id="bonusRate1"><i class="fa fa-inr">0 Hour</i></td>
+              </tr>
+              <tr>
+                <td class="col-md-9">Bonus Rate 2</td>
+                <td class="col-md-3" id="bonusRate2"><i class="fa fa-inr">0 Dollar</i></td>
+              </tr>
+              <tr>
+                <td class="col-md-9">Bonus Salary</td>
+                <td class="col-md-3" id="bonusSalary"><i class="fa fa-inr"></i>0 Dollar</td>
+              </tr>
+              <tr>
+                <td class="col-md-9">Basic Salary</td>
+                <td class="col-md-3" id="basicSalary"><i class="fa fa-inr"></i>0 Dollar</td>
+              </tr>
+            
+
+                <td class="text-right">
+                  <h2><strong>Total: </strong></h2>
+                </td>
+                <td class="text-left text-danger">
+                  <h2 id="totalSalary"><strong><i class="fa fa-inr"></i>0 Dollar</strong></h2>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="row">
+          <div class="receipt-header receipt-header-mid receipt-footer">
+            <div class="col-xs-8 col-sm-8 col-md-8 text-left">
+              <div class="receipt-right">
+                <p><b>Date :</b> 16 Feb 2023</p>
+                <h5 style="color: rgb(140, 140, 140);">Good Hard Working</h5>
+              </div>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4">
+              <div class="receipt-left">
+                <input type="text" placeholder="Enter Time Worker" id="time">
+                <input type="button" value="Calculate" onclick="Cal()">
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <script>
+      function Cal(){
+      
+          var totalTime =document.getElementById('time').value;
+          var extraRate1, extraRate2,bonusRate1,bonusRate2,bonusSalary,basicSalary = 50,totalSalary;
+          if(totalTime<100){
+              
+          }else if(totalTime<=120){
+              extraRate1 = totalTime - 100;
+              extraRate2 = 0;
+              bonusRate1 = extraRate1 * 1.25;
+              bonusRate2 = 0;
+              bonusSalary = bonusRate1;
+              totalSalary = basicSalary + bonusSalary;
+              
+          }
+          else{
+              extraRate2 = totalTime - 120;
+              extraRate1 = totalTime - 100 - extraRate2;
+              bonusRate1 = extraRate1 * 1.25;
+              bonusRate2 = extraRate2 * 1.50;
+              bonusSalary = bonusRate1 + bonusRate2;
+              totalSalary = basicSalary + bonusSalary;
+          }
+          document.getElementById('totalTime').innerHTML = totalTime + " Hour";
+          document.getElementById('extraRate1').innerHTML = extraRate1 + " Hour";
+          document.getElementById('extraRate2').innerHTML = extraRate2 + " Hour";
+          document.getElementById('bonusRate1').innerHTML = bonusRate1 + " Dollars";
+          document.getElementById('bonusRate2').innerHTML = bonusRate2 + " Dollars";
+          document.getElementById('bonusSalary').innerHTML = bonusSalary + " Dollars";
+          document.getElementById('basicSalary').innerHTML = basicSalary + " Dollars";
+          document.getElementById('totalSalary').innerHTML = totalSalary + " Dollars";
+
+
+          
+      }
+    </script>
+</html>
